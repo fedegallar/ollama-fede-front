@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="row">
+    <div *ngFor="let textData of dataTextGroup; let i = index" class="col-12 mt-4">
+      <div class="card">
+        <markdown [data]="textData.message"></markdown>
+      </div>
+    </div>
+    <div *ngIf="writting">
+      <p>Writing...</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-11">
+      <textarea style="width: 100%; resize: none;" [(ngModel)]="textData" rows="3" class="form-control" [disabled]="writting"></textarea>
+    </div>
+    <div class="col-1">
+      <input type="button" value="Send" class="btn btn-primary" (click)="sendData()" [disabled]="writting">
+    </div>
+  </div>
+</div>
